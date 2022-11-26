@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Raleway:wght@300;400;700&display=swap');
+
+
+:root {
+    /* estas son variables para usarlas como clases */
+    --background: linear-gradient(135deg, #667eea7e 0%, #764ba298 100%);
+
+    --color-primary: #667eea;
+    --color-secondary: #764ba2;
+    --boton-padding: 20px 40px;
+
+}
+
+
+
+body {
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Raleway', sans-serif;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 80px 0;
+    max-width: 1200px;
+}
+
+.subtitulo {
+    color: var(--color-primary);
+    font-size: 2, 5rem;
+    margin-bottom: 35px;
+}
+
+.hero {
+    height: 100vh;
+    background-image: var(--background), url('../imagenes/laptop.jpg');
+    background-repeat: no-repeat;
+    /* la de abajo ocupa lo mas grande posible sin pixelear */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+
+}
+
+
+.hero .container {
+    padding: 0;
+}
+
+.nav {
+    /* estas 2 propiedades son para ubicar el nav en derecha o izquierda */
+    display: flex;
+    justify-content: flex-end;
+    height: 70px;
+    align-items: center;
+    font-weight: 700;
+
+
+}
+
+.nav--footer {
+    font-weight: 300;
+
+    /* flex start en lo contrario es para ubicarlo a la izquierda */
+    justify-content: flex-start;
+}
+
+.nav_items {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    padding: 10px 15px;
+    font-weight: inherit;
+}
+
+.nav_items--cta {
+    border: 1px solid white;
+}
+
+.nav_items--footer {
+    padding: 10px;
+
+    color: black;
+}
+
+.hero_container {
+    display: flex;
+    height: calc(100vh - 70px);
+    align-items: center;
+    color: white;
+}
+
+.hero_text {
+    width: 80%;
+    margin-bottom: 50px;
+}
+
+.hero_tittle {
+    font-size: 3.2rem;
+
+}
+
+.hero_subtitulo {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 16px 0;
+}
+
+.hero_wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+
+}
+
+.hero_cta {
+    display: inline-block;
+    background: white;
+    padding: var(--boton-padding);
+    text-decoration: none;
+    border-radius: 40px;
+    color: var(--color-secondary);
+}
+
+/* seccion about */
+
+
+.presentacion {
+    text-align: center;
+    padding-top: 0;
+}
+
+.presentation_picture {
+    width: 300px;
+    border-radius: 80%;
+    height: 300px;
+    margin-bottom: 20px;
+    object-fit: cover;
+    object-position: top;
+
+}
+
+.presentacion_cta {
+
+    display: inline-block;
+    background: rgb(117, 26, 192);
+    padding: var(--boton-padding);
+    text-decoration: none;
+    border-radius: 40px;
+    color: white;
+    margin-top: 40px;
+
+}
+
+
+.about {
+
+    /* con grid podemos ubicar columna */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    /* ahora un espaciado en las filas */
+    row-gap: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.about_img {
+    text-align: center;
+}
+
+/* el max width no van a superar los bloques */
+.about_picture {
+    max-width: 80%;
+
+}
+
+.about_paragraph {
+    margin-bottom: 20px;
+
+
+    /* line-height es para definir altura entre renglones */
+
+
+    line-height: 1.5;
+    font-weight: normal;
+}
+
+/* proyectos */
+
+.proyecto {
+    background: rgb(243, 234, 234);
+
+
+
+}
+
+
+.proyecto_grid {
+    display: grid;
+    height: 550px;
+    grid-template-areas: "item1 item1 item2 item3"
+        "item1 item1 item4 item5";
+    gap: 10px;
+
+
+}
+
+.proyecto_item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+.proyecto_img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+/* :nth-of-type() hace que 
+cualquier elemento que hace que al 
+primer elemento que encuentre 
+del mismo tipo le dara 
+el grid area del item1 */
+.proyecto_item:nth-of-type(1) {
+    grid-area: item1;
+
+}
+
+.proyecto_item:nth-of-type(2) {
+    grid-area: item2;
+
+}
+
+.proyecto_item:nth-of-type(3) {
+    grid-area: item3;
+
+}
+
+.proyecto_item:nth-of-type(4) {
+    grid-area: item4;
+
+}
+
+.proyecto_item:nth-of-type(5) {
+    grid-area: item5;
+
+}
+
+.proyecto-subtitulo {
+    text-align: center;
+    margin: 100px auto;
+    color: var(--color-primary);
+}
+
+.proyecto_hover{
+    position: absolute;
+    background: #dc143c8c;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(100%);
+    cursor: pointer;
+    transition: transform .5s ease-in-out;
+
+}
+
+.proyecto_item:hover .proyecto_hover{
+    transform: translateX(0%);
+}
+.proyecto_icon{
+    margin-top: 10px;
+    font-size: 30px;
+}
